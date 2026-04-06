@@ -16,3 +16,9 @@ vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left wind
 vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+
+-- Normal + Visual
+vim.keymap.set({ 'n', 'v' }, '<C-s>', '<cmd>w<cr>', { desc = 'Save' })
+
+-- Insert (sale a normal, guarda, vuelve a insert)
+vim.keymap.set('i', '<C-s>', '<Esc><cmd>w<cr>a', { desc = 'Save' })
