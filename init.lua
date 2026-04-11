@@ -189,8 +189,6 @@ vim.diagnostic.config {
   jump = { float = true },
 }
 
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
-
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
 -- is not what someone will guess without a bit more experience.
@@ -393,9 +391,7 @@ require('lazy').setup({
           map('gK', vim.lsp.buf.signature_help, 'Signature Help')
           map('<leader>cr', vim.lsp.buf.rename, 'Rename')
           map('<leader>ca', vim.lsp.buf.code_action, 'Code Action', { 'n', 'x' })
-          map('<leader>cA', function()
-            vim.lsp.buf.code_action { context = { only = { 'source' }, diagnostics = {} } }
-          end, 'Source Action')
+          map('<leader>cA', function() vim.lsp.buf.code_action { context = { only = { 'source' }, diagnostics = {} } } end, 'Source Action')
 
           -- The following two autocommands are used to highlight references of the
           -- word under your cursor when your cursor rests there for a little while.
@@ -488,9 +484,9 @@ require('lazy').setup({
       -- You can press `g?` for help in this menu.
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
-        'stylua',    -- formatter Lua
+        'stylua', -- formatter Lua
         'prettierd', -- formatter JS/TS/JSON/CSS/HTML
-        'eslint_d',  -- linter JS/TS
+        'eslint_d', -- linter JS/TS
       })
 
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
