@@ -22,3 +22,7 @@ vim.keymap.set({ 'n', 'v' }, '<C-s>', '<cmd>w<cr>', { desc = 'Save' })
 
 -- Insert (sale a normal, guarda, vuelve a insert)
 vim.keymap.set('i', '<C-s>', '<Esc><cmd>w<cr>a', { desc = 'Save' })
+
+-- LSP: Source Action (Organize Imports, Add missing imports, etc.)
+-- NOTA: gd, gr, gI, gy, gD, K, <leader>cr, <leader>ca, <leader>cA
+-- se setean en LspAttach en init.lua (buffer-local, solo cuando hay LSP activo)
